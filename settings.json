@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "python.analysis.indexing": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "python.analysis.typeCheckingMode": "off",
+  "isort.args": ["--profile", "black"],
+  "autoflake-extension.expand-star-imports": true,
+  "autoflake-extension.remove-all-unused-imports": true
+}

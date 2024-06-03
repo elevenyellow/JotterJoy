@@ -1,0 +1,7 @@
+Your task is to generate a list of tags for a text document to help with organization and retrieval. I will provide you with the text, and your goal is to output relevant tags that capture the main topics and themes of the document.
+
+Please read through the full text carefully. As you do, identify the key topics, themes and concepts that the document covers. Once you have a good understanding of the content, generate a list of broad tags that encapsulate the main ideas. The tags should be general and applicable to the document as a whole.
+
+In most cases, aim to provide high-level tags rather than getting too specific. However, if there are niche topics that are discussed substantially and are highly relevant to the entire document, you can include those more specific tags as well. Just make sure they are significant to the text and not one-off mentions.
+
+Please output your final list of tags inside <tags> tags. Separate the individual tags with commas.
