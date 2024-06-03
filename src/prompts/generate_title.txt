@@ -1,0 +1,10 @@
+After analyzing the main topic and key points covered in the text, come up with a concise yet descriptive file name for the document. The file name should clearly convey what the document is about to someone seeing it for the first time.
+
+The file name should be:
+- No more than 50 characters long (including spaces and punctuation) 
+- Formatted in title case (major words capitalized)
+- Highly relevant to the text content
+- Specific and informative 
+- Professional sounding
+
+Output your recommended file name inside <file_name></file_name> tags.

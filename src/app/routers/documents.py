@@ -1,6 +1,6 @@
 # app/routers/documents.py
 from fastapi import APIRouter, UploadFile, File
-from app.services import spelling, grammar, tagging
+from app.services import spelling, tagging, title
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 
@@ -12,13 +12,14 @@ async def upload_document(file: UploadFile = File(...)):
     text = content.decode("utf-8")
 
     # Perform document processing tasks
-    corrected_text = await spelling.afix_spelling(text)
-    tags = await tagging.afind_tags(corrected_text)
+    fixed_text = await spelling.afix_spelling(text)
+    tags = await tagging.afind_tags(fixed_text)
+    fixed_title = await title.aget_title(fixed_text)
 
     # Return the processed document
     return {
-        "corrected_text": corrected_text,
-        # "fixed_grammar": fixed_grammar,
+        "fixed_text": fixed_text,
+        "slug_title": fixed_title,
         "tags": tags,
     }
 
@@ -29,10 +30,10 @@ async def fix_spelling(text: str):
     return {"fixed_text": fixed_text}
 
 
-@router.post("/grammar")
-async def fix_grammar(text: str):
-    fixed_text = grammar.fix_grammar(text)
-    return {"fixed_text": fixed_text}
+@router.post("/title")
+async def generate_title(text: str):
+    fixed_title = await title.aget_title(text)
+    return {"slug_title": fixed_title}
 
 
 @router.post("/tags")

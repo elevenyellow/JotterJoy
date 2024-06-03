@@ -4,6 +4,7 @@ from enum import Enum
 class Prompt(Enum):
     fix_text = "fix_text"
     tagging = "tagging"
+    generate_title = "generate_title"
 
 
 def get_prompt(type: Prompt) -> str:
