@@ -1,7 +1,9 @@
+from datetime import datetime
 from typing import Tuple
 
 from app.utils import DEFAULT_AI_SERVICE
 from app.utils.prompt_utils import Prompt, get_prompt
+from app.utils.text_utils import slugify
 
 
 async def afind_tags(text: str) -> list:
@@ -13,8 +15,13 @@ async def afind_tags(text: str) -> list:
     tags = entities.get("tags") or ""
     # Seperated by dash
     tags = tags.split(",")
-    tags = [tag.strip().lower() for tag in tags]
+    tags = [slugify(tag.strip()) for tag in tags]
     tags = list(filter(None, tags))
+
+    when_tag = datetime.now().strftime("%Y-%m-%d")
+    tags.append(when_tag)
+
+    print(response)
 
     return tags
 

@@ -1,7 +1,17 @@
-Your task is to generate a list of tags for a text document to help with organization and retrieval. I will provide you with the text, and your goal is to output relevant tags that capture the main topics and themes of the document.
+Please carefully read through the text and identify the main topics, themes, people, places, and statuses mentioned. Think through potential tags, focusing on these 4 categories:
 
-Please read through the full text carefully. As you do, identify the key topics, themes and concepts that the document covers. Once you have a good understanding of the content, generate a list of broad tags that encapsulate the main ideas. The tags should be general and applicable to the document as a whole.
+Who: Someone of major importance to the text, formatted as firstname-lastname 
+What: The document's intention, e.g. blog, video-script
+Where: Area or place, e.g. home, work, a specific project
+Status: E.g. draft, complete, version #1, archived
 
-In most cases, aim to provide high-level tags rather than getting too specific. However, if there are niche topics that are discussed substantially and are highly relevant to the entire document, you can include those more specific tags as well. Just make sure they are significant to the text and not one-off mentions.
+<scratchpad>
+Who: [list potential 'who' tags]
+What: [list potential 'what' tags] 
+Where: [list potential 'where' tags]
+Status: [list potential 'status' tags]
 
-Please output your final list of tags inside <tags> tags. Separate the individual tags with commas.
+[Think through which of these potential tags are truly relevant and capture the main topics/themes. Remove any tags that are not major topics or are uncertain/irrelevant.]
+</scratchpad>
+
+Please output the final comma-separated list of tags you've generated inside <tags></tags> tags. Only include a tag if you are reasonably certain it is relevant and captures a main topic or theme from the text. If a category is not applicable, omit it.

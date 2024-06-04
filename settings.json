@@ -11,5 +11,6 @@
   "python.analysis.typeCheckingMode": "off",
   "isort.args": ["--profile", "black"],
   "autoflake-extension.expand-star-imports": true,
-  "autoflake-extension.remove-all-unused-imports": true
+  "autoflake-extension.remove-all-unused-imports": true,
+  "python.defaultInterpreterPath": "./.venv/bin/python"
 }
