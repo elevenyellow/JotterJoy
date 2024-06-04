@@ -4,7 +4,7 @@ import unicodedata
 
 def slugify(value, allow_unicode=False):
     """
-    Taken from https://github.com/django/django/blob/master/django/utils/text.py
+    Taken from https://github.com/django/django/blob/master/django/utils/text.py # noqa
     Convert to ASCII if 'allow_unicode' is False. Convert spaces or repeated
     dashes to single dashes. Remove characters that aren't alphanumerics,
     underscores, or hyphens. Convert to lowercase. Also strip leading and

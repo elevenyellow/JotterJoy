@@ -1,13 +1,13 @@
 from datetime import datetime
 from typing import Tuple
 
-from app.utils import DEFAULT_AI_SERVICE
+from app.utils import get_ai_service
 from app.utils.prompt_utils import Prompt, get_prompt
 from app.utils.text_utils import slugify
 
 
 async def afind_tags(text: str) -> list:
-    ai_service = DEFAULT_AI_SERVICE
+    ai_service = get_ai_service()
 
     prompt, system_prompt = create_prompt(text)
     response = await ai_service.generate_response(prompt, system_prompt)

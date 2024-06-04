@@ -1,17 +1,12 @@
-Please carefully read through the text and identify the main topics, themes, people, places, and statuses mentioned. Think through potential tags, focusing on these 4 categories:
+Please read through the text carefully and think about the main topics, themes, people, places, and statuses mentioned. 
 
-Who: Someone of major importance to the text, formatted as firstname-lastname 
-What: The document's intention, e.g. blog, video-script
+In a <scratchpad>, brainstorm potential tags focusing on these 4 key categories and after brainstorming potential tags, critically evaluate them. Remove any tags that aren't truly relevant to the main topics and themes of the text, or where the relevance is uncertain. Focus on narrowing it down to the core tags that capture the essential topics, which could be used later to retrieve this document or link it to similar ones.
+
+Who: Someone of major importance to the text, formatted as firstname-lastname
+What: The document's intention, e.g. blog, video-script 
 Where: Area or place, e.g. home, work, a specific project
-Status: E.g. draft, complete, version #1, archived
+Status: E.g. draft, complete, version-1, archived
 
-<scratchpad>
-Who: [list potential 'who' tags]
-What: [list potential 'what' tags] 
-Where: [list potential 'where' tags]
-Status: [list potential 'status' tags]
+Remember, tags should be 1-2 words each. When relevant, try to use standard tags from the Universal Decimal Classification system to ensure proper categorization.
 
-[Think through which of these potential tags are truly relevant and capture the main topics/themes. Remove any tags that are not major topics or are uncertain/irrelevant.]
-</scratchpad>
-
-Please output the final comma-separated list of tags you've generated inside <tags></tags> tags. Only include a tag if you are reasonably certain it is relevant and captures a main topic or theme from the text. If a category is not applicable, omit it.
+Output the final comma-separated list of tags you've generated inside <tags></tags>. Only include a tag if you are reasonably certain it is relevant and captures a main topic or theme from the text. If a category is not applicable, omit it entirely.
