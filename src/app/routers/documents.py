@@ -60,3 +60,9 @@ async def upload_document(
         "slug_title": fixed_title,
         "tags": tags,
     }
+
+
+@router.post("/tags")
+async def get_tags(text: str):
+    tags = await tagging.afind_tags(text)
+    return {"tags": tags}

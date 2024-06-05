@@ -12,7 +12,7 @@ async def aget_title(text: str) -> Optional[str]:
     entities = await ai_service.extract_entities(response)
     corrected_text = entities.get("file_name") or None
     corrected_text = corrected_text and corrected_text.strip()
-    corrected_text = corrected_text and slugify(corrected_text)
+    # corrected_text = corrected_text and slugify(corrected_text)
 
     return corrected_text
 
