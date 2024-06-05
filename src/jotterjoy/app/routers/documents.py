@@ -2,9 +2,9 @@ import json
 from typing import Annotated, Any
 from fastapi import APIRouter, HTTPException, UploadFile, File
 from pydantic import BaseModel, model_validator
-from app.services import spelling, tagging, title
-from app.utils import init_ai_service
-from models.llm_model import LLMModel
+from jotterjoy.app.services import spelling, tagging, title
+from jotterjoy.app.utils import init_ai_service
+from jotterjoy.models.llm_model import LLMModel
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 
@@ -63,6 +63,10 @@ async def upload_document(
 
 
 @router.post("/tags")
-async def get_tags(text: str):
+async def get_tags(
+    text: str,
+    input_params: InputParams = InputParams(),
+):
+    init_ai_service(input_params.model)
     tags = await tagging.afind_tags(text)
     return {"tags": tags}

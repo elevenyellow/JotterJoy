@@ -1,7 +1,6 @@
 from typing import Optional, Tuple
-from app.utils import get_ai_service
-from app.utils.prompt_utils import Prompt, get_prompt
-from app.utils.text_utils import slugify
+from jotterjoy.app.utils import get_ai_service
+from jotterjoy.app.utils.prompt_utils import Prompt, get_prompt
 
 
 async def aget_title(text: str) -> Optional[str]:
@@ -12,7 +11,6 @@ async def aget_title(text: str) -> Optional[str]:
     entities = await ai_service.extract_entities(response)
     corrected_text = entities.get("file_name") or None
     corrected_text = corrected_text and corrected_text.strip()
-    # corrected_text = corrected_text and slugify(corrected_text)
 
     return corrected_text
 

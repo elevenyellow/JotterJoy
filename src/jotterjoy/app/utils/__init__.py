@@ -1,6 +1,6 @@
-from app.utils.ai_service import AIService
-from app.utils.groq_service import GroqService
-from models.llm_model import LLMModel
+from jotterjoy.app.utils.ai_service import AIService
+from jotterjoy.app.utils.groq_service import GroqService
+from jotterjoy.models.llm_model import LLMModel
 
 
 llmmodel = LLMModel.groq_llama3_8b_8192

@@ -1,6 +1,6 @@
 from typing import Tuple
-from app.utils import get_ai_service
-from app.utils.prompt_utils import Prompt, get_prompt
+from jotterjoy.app.utils import get_ai_service
+from jotterjoy.app.utils.prompt_utils import Prompt, get_prompt
 
 
 async def afix_spelling(text: str) -> str:

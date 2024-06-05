@@ -1,9 +1,9 @@
 from datetime import datetime
 from typing import Tuple
 
-from app.utils import get_ai_service
-from app.utils.prompt_utils import Prompt, get_prompt
-from app.utils.text_utils import slugify
+from jotterjoy.app.utils import get_ai_service
+from jotterjoy.app.utils.prompt_utils import Prompt, get_prompt
+from jotterjoy.app.utils.text_utils import slugify
 
 
 async def afind_tags(text: str) -> list:
@@ -20,8 +20,6 @@ async def afind_tags(text: str) -> list:
 
     when_tag = datetime.now().strftime("%Y-%m-%d")
     tags.append(when_tag)
-
-    print(response)
 
     return tags
 

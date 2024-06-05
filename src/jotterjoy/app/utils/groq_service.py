@@ -1,6 +1,6 @@
 import os
 from groq import AsyncGroq
-from app.utils.openai_like_service import OpenAILikeService
+from jotterjoy.app.utils.openai_like_service import OpenAILikeService
 
 
 # llama3-70b-8192

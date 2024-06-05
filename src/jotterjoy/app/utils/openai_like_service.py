@@ -1,6 +1,6 @@
 from abc import ABC
 from typing import Any, Optional
-from app.utils.ai_service import AIService
+from jotterjoy.app.utils.ai_service import AIService
 
 
 class ClientInterface:

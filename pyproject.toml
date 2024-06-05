@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "anthos"
+name = "JotterJoy"
 version = "0.1.0"
 description = ""
 authors = ["Anis <anisanissakkaf@gmail.com>"]
@@ -19,9 +19,11 @@ black = { version = "^23.1.0", allow-prereleases = true }
 flake8 = "^6.0.0"
 djlint = "^1.34.0"
 autoflake = "^2.2.1"
+pyinstaller = "^6.7.0"
 
 [tool.poe.tasks]
-start = "fastapi dev src/app/main.py"
+start = "fastapi dev src/jotterjoy/app/main.py"
+build = "python src/jotterjoy/app/pyinstaller.py"
 
 [[tool.poetry.source]]
 name = "pytorch-cpu"
