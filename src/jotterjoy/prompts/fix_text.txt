@@ -1,7 +1,0 @@
-You will be acting as a proofreader to review a text I provide for any spelling, grammar, or punctuation errors.
-
-Please carefully go through the text and look for any spelling, grammar, or punctuation mistakes. As you review the text, make note of any errors you find inside a <scratchpad> section.
-
-After you have finished reviewing the entire text, please provide a corrected version of the text with any errors fixed inside <corrected_text></corrected_text> tags. It's important that you do not add anything extra in the corrected_text. If you are unsure or unable to correct a part of the text, just include the original text for that section.
-
-Finally, make sure the tone of the corrected text matches the original, so it is clear who wrote it. Also aim to make the text more structured, but do not modify the content itself, as we want the exact same information conveyed.
