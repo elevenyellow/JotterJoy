@@ -6,7 +6,10 @@ from typing import Dict, Optional
 class AIService(ABC):
     @abstractmethod
     async def generate_response(
-        self, prompt: str, system_prompt: Optional[str] = None
+        self,
+        prompt: str,
+        system_prompt: Optional[str] = None,
+        api_key: Optional[str] = None,
     ) -> str:
         pass
 

@@ -4,6 +4,8 @@ from jotterjoy.app.utils.ai_service import AIService
 
 
 class ClientInterface:
+    api_key: str
+
     def __init__(self):
         # Initialize the client interface
         pass
@@ -22,7 +24,9 @@ class OpenAILikeService(AIService, ABC):
         self.model_name = model_name
 
     async def achat_completion(
-        self, prompt: str, system_prompt: Optional[str] = None
+        self,
+        prompt: str,
+        system_prompt: Optional[str] = None,
     ) -> str:
         messages = []
         if system_prompt:
@@ -51,7 +55,10 @@ class OpenAILikeService(AIService, ABC):
         return result
 
     async def generate_response(
-        self, prompt: str, system_prompt: Optional[str] = None
+        self,
+        prompt: str,
+        system_prompt: Optional[str] = None,
+        api_key: Optional[str] = None,
     ) -> str:
         result = await self.achat_completion(prompt, system_prompt)
         return result

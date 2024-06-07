@@ -3,11 +3,15 @@ from jotterjoy.app.utils import get_ai_service
 from jotterjoy.app.utils.prompt_utils import Prompt, get_prompt
 
 
-async def aget_title(text: str) -> Optional[str]:
+async def aget_title(text: str, api_key: Optional[str]) -> Optional[str]:
     ai_service = get_ai_service()
 
     prompt, system_prompt = create_prompt(text)
-    response = await ai_service.generate_response(prompt, system_prompt)
+    response = await ai_service.generate_response(
+        prompt,
+        system_prompt,
+        api_key,
+    )
     entities = await ai_service.extract_entities(response)
     corrected_text = entities.get("file_name") or None
     corrected_text = corrected_text and corrected_text.strip()

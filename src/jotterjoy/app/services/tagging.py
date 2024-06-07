@@ -1,16 +1,20 @@
 from datetime import datetime
-from typing import Tuple
+from typing import Optional, Tuple
 
 from jotterjoy.app.utils import get_ai_service
 from jotterjoy.app.utils.prompt_utils import Prompt, get_prompt
 from jotterjoy.app.utils.text_utils import slugify
 
 
-async def afind_tags(text: str) -> list:
+async def afind_tags(text: str, api_key: Optional[str]) -> list:
     ai_service = get_ai_service()
 
     prompt, system_prompt = create_prompt(text)
-    response = await ai_service.generate_response(prompt, system_prompt)
+    response = await ai_service.generate_response(
+        prompt,
+        system_prompt,
+        api_key,
+    )
     entities = await ai_service.extract_entities(response)
     tags = entities.get("tags") or ""
     # Seperated by dash

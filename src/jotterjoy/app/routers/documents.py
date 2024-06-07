@@ -1,12 +1,15 @@
 import json
-from typing import Annotated, Any
-from fastapi import APIRouter, HTTPException, UploadFile, File
+from typing import Annotated, Any, Optional
+from fastapi import APIRouter, HTTPException, UploadFile, File, Depends
+from fastapi.security import APIKeyHeader
 from pydantic import BaseModel, model_validator
 from jotterjoy.app.services import spelling, tagging, title
 from jotterjoy.app.utils import init_ai_service
 from jotterjoy.models.llm_model import LLMModel
 
 router = APIRouter(prefix="/documents", tags=["documents"])
+
+apiKeyScheme = APIKeyHeader(name="api_key", auto_error=False)
 
 
 # InputParams
@@ -34,6 +37,7 @@ async def upload_document(
             alias="file",
         ),
     ],
+    api_key: Annotated[Optional[str], Depends(apiKeyScheme)] = None,
     input_params: InputParams = InputParams(),
 ):
     if file.content_type != "text/markdown":
@@ -50,9 +54,9 @@ async def upload_document(
     init_ai_service(input_params.model)
 
     # Perform document processing tasks
-    fixed_text = await spelling.afix_spelling(text)
-    tags = await tagging.afind_tags(fixed_text)
-    fixed_title = await title.aget_title(fixed_text)
+    fixed_text = await spelling.afix_spelling(text, api_key)
+    tags = await tagging.afind_tags(fixed_text, api_key)
+    fixed_title = await title.aget_title(fixed_text, api_key)
 
     # Return the processed document
     return {
@@ -65,18 +69,20 @@ async def upload_document(
 @router.post("/tags")
 async def get_tags(
     text: str,
+    api_key: Annotated[Optional[str], Depends(apiKeyScheme)] = None,
     input_params: InputParams = InputParams(),
 ):
     init_ai_service(input_params.model)
-    tags = await tagging.afind_tags(text)
+    tags = await tagging.afind_tags(text, api_key)
     return {"tags": tags}
 
 
 @router.post("/fix-text")
 async def fix_text(
     text: str,
+    api_key: Annotated[Optional[str], Depends(apiKeyScheme)] = None,
     input_params: InputParams = InputParams(),
 ):
     init_ai_service(input_params.model)
-    fixed_text = await spelling.afix_spelling(text)
+    fixed_text = await spelling.afix_spelling(text, api_key)
     return {"fixed_text": fixed_text}
