@@ -70,3 +70,13 @@ async def get_tags(
     init_ai_service(input_params.model)
     tags = await tagging.afind_tags(text)
     return {"tags": tags}
+
+
+@router.post("/fix-text")
+async def fix_text(
+    text: str,
+    input_params: InputParams = InputParams(),
+):
+    init_ai_service(input_params.model)
+    fixed_text = await spelling.afix_spelling(text)
+    return {"fixed_text": fixed_text}
